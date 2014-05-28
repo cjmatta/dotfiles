@@ -49,9 +49,6 @@ export PATH=/Applications/MAMP/bin/php/php5.3.6/bin:$PATH
 # Add yeomen - yeoman for express to PATH
 PATH=$PATH:/Users/chris/Dropbox/Projects/javascript/yeoman/yeoman-custom/cli/bin
 #
-alias ssh-peep="ssh -t chris@peep.local 'tmux attach || tmux new'"
-alias ssh-pi="ssh pi@192.168.1.33"
-alias ssh-pi2="ssh -t pi@192.168.1.44 'tmux attach || tmux new'"
 
 export GOPATH=~/Dropbox/Projects/go
 WORKON_HOME=~/.venvs
