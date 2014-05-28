@@ -1,0 +1,6 @@
+# public keys
+ssh/id_rsa
+ssh/ec2_rsa
+ssh/cmattaec2.pem
+ssh/github_rsa
+ssh/github_rsa_bak-github
