@@ -7,9 +7,11 @@ My configuration files
 Relies on [rcm](https://github.com/thoughtbot/rcm) and [homebrew](http://brew.sh/)
 
 Install Homebrew:
+
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 Install rcm:
+
     brew tap thoughtbot/formulae
     brew install rcm
 
