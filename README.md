@@ -18,5 +18,8 @@ Install rcm:
 ## Installation
 
     $ git clone git@github.com:cmatta/dotfiles.git .dotfiles
+    $ cd .dotfiles
+    $ git submodule update
+    $ cd ..
     $ rcup
 
