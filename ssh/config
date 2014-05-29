@@ -1,0 +1,11 @@
+Host emile
+  Hostname emile.local
+  User chris
+
+Host peep
+  Hostname peep.local
+  User chris
+
+Host eris
+  Hostname eris.discordians.net
+  user chris
