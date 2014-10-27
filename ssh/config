@@ -9,3 +9,36 @@ Host peep
 Host eris
   Hostname eris.discordians.net
   user chris
+
+Host home
+  Hostname 1306fifteen.no-ip.biz
+  User chris
+
+Host mycluster-streamer
+  Hostname ec2-54-210-179-193.compute-1.amazonaws.com
+  User chris
+
+Host sejump
+  Hostname ec2-54-88-129-102.compute-1.amazonaws.com
+  User cmatta
+  IdentityFile ~/.ssh/cmatta.pem
+
+Host andypdemo0
+  Hostname 54.164.185.30
+  User root
+
+Host teradata
+  Hostname 192.168.1.26
+  User root
+
+Host mapr311
+  Hostname 192.168.1.32
+  User root
+
+Host github.com
+  Hostname github.com
+  IdentityFile ~/.ssh/cmatta.pem
+
+Host sen*
+  User cmatta
+  IdentityFile ~/.ssh/cmatta.pem

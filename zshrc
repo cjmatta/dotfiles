@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="blinks"
+ZSH_THEME="simple"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -33,26 +33,31 @@ plugins=(git osx sublime)
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH=~/bin:/usr/local/bin:$PATH
+
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-alias projects='cd ~/Dropbox/Projects'
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+alias projects="cd ~/Google\ Drive/Projects"
+
+export GOPATH=~/Dropbox/Projects/go
+
+WORKON_HOME=~/.venvs
+source ~/.venvs/default/bin/activate
+source ~/.venvs/default/bin/virtualenvwrapper.sh
+
+export SCALA_HOME=/usr/local/Cellar/scala
+# Scala play
+export PATH=$PATH:/Users/chris/Dropbox/Projects/scala/play
+
+# For HIVE ODBC
+# export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/opt/mapr/hiveodbc/lib/universal
+
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-### MAMP php
-export PATH=/Applications/MAMP/bin/php/php5.3.6/bin:$PATH
-
-[[ -s /Users/chris/.nvm/nvm.sh ]] && . /Users/chris/.nvm/nvm.sh # This loads NVM
-
-# Add yeomen - yeoman for express to PATH
-PATH=$PATH:/Users/chris/Dropbox/Projects/javascript/yeoman/yeoman-custom/cli/bin
-#
-
-export GOPATH=~/Dropbox/Projects/go
-WORKON_HOME=~/.venvs
-source /usr/local/bin/virtualenvwrapper.sh
-export SCALA_HOME=/usr/local/Cellar/scala
-
-export PATH=$PATH:/Users/chris/Dropbox/Projects/scala/play
+alias 311cluster_off="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/mapr-ansible-roles/playbooks/cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnoff.yml\""
+alias 311cluster_on="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/mapr-ansible-roles/playbooks/cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnon.yml\""
+alias 401cluster_off="ssh sejump \"source ~/mapr-ansible-roles-401/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/mapr-ansible-roles-401/playbooks/cluster.hosts ~/mapr-ansible-roles-401/playbooks/aws_turnoff.yml\""
+alias 401cluster_on="ssh sejump \"source ~/mapr-ansible-roles-401/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/mapr-ansible-roles-401/playbooks/cluster.hosts ~/mapr-ansible-roles-401/playbooks/aws_turnon.yml\""
+export JAVA_HOME=$(/usr/libexec/java_home)
