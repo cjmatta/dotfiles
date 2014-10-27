@@ -13,5 +13,5 @@ git clone git://github.com/tpope/vim-sensible.git
 cd ~/.vim/bundle && \
 git clone git://github.com/altercation/vim-colors-solarized.git
 
-ln -s ./vimrc ~/.vimrc
+ln -s ~/.dotfiles/vimrc ~/.vimrc
 touch ~/.vimrc.local
