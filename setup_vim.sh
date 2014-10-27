@@ -1,6 +1,3 @@
-mkdir -p ~/.dotfiles && cd ~/.dotfiles && \
-curl -O https://raw.githubusercontent.com/cjmatta/dotfiles/master/vimrc
-
 # install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
