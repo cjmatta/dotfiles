@@ -23,8 +23,9 @@ set softtabstop=4
 " Paste mode toggle
 :nmap \o :set paste!<CR>
 
-" respect the local vim
-source ~/.vimrc.local
+" Toggle current fold
+nnoremap <space> za
+vnoremap <space> za
 
 " Search
 " Highlight on search
@@ -34,6 +35,12 @@ source ~/.vimrc.local
 :set smartcase
 :set hlsearch
 :nmap \q :nohlsearch<CR>
+" clear search
+:nmap \/ :let @/ = ""<CR>
+
+" Folding
+set foldmethod=syntax
+set foldcolumn=3
 
 " Buffer navigation
 " last buffer
@@ -42,6 +49,8 @@ source ~/.vimrc.local
 :nmap <C-n> :bnext<CR>
 " previous
 :nmap <C-p> :bprev<CR>
+" close buffer
+:nmap <C-w> :bd<CR>
 
 " Tab stuff
 :nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
@@ -64,3 +73,7 @@ source ~/.vimrc.local
 
 " NerdTree
 :nmap \e :NERDTreeToggle<CR>
+
+" respect the local vim
+source ~/.vimrc.local
+
