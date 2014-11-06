@@ -4,6 +4,7 @@ execute pathogen#infect()
 syntax on
 set number
 set background=dark
+set autoindent
 colorscheme solarized
 filetype plugin indent on
 
@@ -42,6 +43,12 @@ vnoremap <space> za
 set foldmethod=syntax
 set foldcolumn=3
 
+" Pane navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
 " Buffer navigation
 " last buffer
 :nmap <C-e> :b#<CR>
@@ -49,8 +56,6 @@ set foldcolumn=3
 :nmap <C-n> :bnext<CR>
 " previous
 :nmap <C-p> :bprev<CR>
-" close buffer
-:nmap <C-w> :bd<CR>
 
 " Tab stuff
 :nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
