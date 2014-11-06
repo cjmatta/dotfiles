@@ -19,7 +19,8 @@ fi
 # ctrlp
 if [[ ! -d ~/.vim/bundle/ctrlp.vim ]]
 then
-	git clone https://github.com/kien/ctrlp.vim.git ~/.vim/ctrlp.vim 
+    cd ~/.vim/bundle &&\
+	git clone https://github.com/kien/ctrlp.vim.git
 fi
 
 # nerdtree
