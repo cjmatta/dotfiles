@@ -1,11 +1,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
+ZSH_CUSTOM=$HOME/.dotfiles/zsh-custom
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="simple"
+ZSH_THEME="burger"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -43,7 +43,6 @@ export GOPATH=~/Dropbox/Projects/go
 
 WORKON_HOME=~/.venvs
 source ~/.venvs/default/bin/activate
-source ~/.venvs/default/bin/virtualenvwrapper.sh
 
 export SCALA_HOME=/usr/local/Cellar/scala
 # Scala play
@@ -58,7 +57,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 alias 311cluster_off="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/311_cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnoff.yml\""
 alias 311cluster_on="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/311_cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnon.yml\""
-alias 401cluster_off="ssh sejump \"source ~/mapr-ansible-roles-401/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/401_cluster.hosts ~/mapr-ansible-roles-401/playbooks/aws_turnoff.yml\""
-alias 401cluster_on="ssh sejump \"source ~/mapr-ansible-roles-401/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/cluster/401_cluster.hosts ~/mapr-ansible-roles-401/playbooks/aws_turnon.yml\""
+alias 401cluster_off="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/401_cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnoff.yml\""
+alias 401cluster_on="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/401_cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnon.yml\""
 export JAVA_HOME=$(/usr/libexec/java_home)
 alias secluster="ssh -t sen10 tmux a"
