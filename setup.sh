@@ -5,10 +5,9 @@ function myreadlink() {
           
     )
 }
-THISDIR=$(dirname $(myreadlink $0));
-$THISDIR/setup.sh
 
-if [[ ! -h ~/.gitconfig ]]
+THISDIR=$(myreadlink $0);
+if [[ ! -f ~/.tmux.conf ]]
 then
-    ln -s $THISDIR/gitconfig_work ~/.gitconfig;
+    ln -s $THISDIR/tmux.conf ~/.tmux.conf;
 fi
