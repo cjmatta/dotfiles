@@ -4,4 +4,5 @@ $THISDIR/setup_vim.sh
 if [[ ! -f ~/.tmux.conf ]]
 then
     ln -s $THISDIR/tmux.conf ~/.tmux.conf;
+    ln -s $THISDIR/tmux ~/.tmux;
 fi
