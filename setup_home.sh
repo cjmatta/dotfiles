@@ -1,7 +1,15 @@
-THISDIR=$(dirname $0)
+function myreadlink() {
+    (
+      cd $(dirname $1)         
+        echo $PWD/$(basename $1) 
+          
+    )
+}
+
+THISDIR=$(dirname $(myreadlink $0));
 $THISDIR/setup.sh
 
-if [[ ! -f ~/.gitconfig ]]
+if [[ ! -h ~/.gitconfig ]]
 then
-    ln -s $THISDIR/gitconfig ~/.gitconfig;
+    ln -s $THISDIR/gitconfig_home ~/.gitconfig;
 fi

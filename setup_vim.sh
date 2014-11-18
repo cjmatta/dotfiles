@@ -30,6 +30,13 @@ then
 	git clone https://github.com/scrooloose/nerdtree.git
 fi
 
+# nerdcomment
+if [[ ! -d ~/.vim/bundle/nerdcommenter ]]
+then
+  cd ~/.vim/bundle && \
+    git clone https://github.com/scrooloose/nerdcommenter.git
+fi
+
 # syntastic
 if [[ ! -d ~/.vim/bundle/syntastic ]]
 then
