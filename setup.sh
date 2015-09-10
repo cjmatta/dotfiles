@@ -6,8 +6,9 @@ function myreadlink() {
     )
 }
 
-THISDIR=$(myreadlink $0);
+THISDIR=$(dirname $(myreadlink $0));
 if [[ ! -f ~/.tmux.conf ]]
 then
     ln -s $THISDIR/tmux.conf ~/.tmux.conf;
+    ln -s $THISDIR/tmux ~/.tmux;
 fi
