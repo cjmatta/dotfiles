@@ -5,6 +5,7 @@ syntax on
 set number
 set background=dark
 set autoindent
+let macvim_skip_colorscheme=1
 colorscheme solarized
 filetype plugin indent on
 
@@ -40,6 +41,7 @@ vnoremap <space> za
 :nmap \/ :let @/ = ""<CR>
 
 " Folding
+set foldlevel=99
 set foldmethod=syntax
 set foldcolumn=3
 
@@ -56,6 +58,8 @@ noremap <C-l> <C-w>l
 :nmap <C-n> :bnext<CR>
 " previous
 :nmap <C-p> :bprev<CR>
+" close buffer
+:nmap <C-x> :bd
 
 " Tab stuff
 :nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
