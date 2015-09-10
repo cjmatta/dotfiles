@@ -6,3 +6,9 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[alias]
+	unstage = reset HEAD --
+    l = log --oneline --graph
+    ci = commit
+    co = checkout
+    br = branch
