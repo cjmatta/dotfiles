@@ -37,7 +37,7 @@ export PATH=~/bin:/usr/local/bin:$PATH
 
 # Customize to your needs...
 
-alias projects="cd ~/Google\ Drive/Projects"
+alias projects="cd ~/GoogleDrive/Projects"
 
 export GOPATH=~/Dropbox/Projects/go
 
@@ -55,9 +55,45 @@ export PATH=$PATH:/Users/chris/Dropbox/Projects/scala/play
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-alias 311cluster_off="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/311_cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnoff.yml\""
-alias 311cluster_on="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/311_cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnon.yml\""
-alias 401cluster_off="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/401_cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnoff.yml\""
-alias 401cluster_on="ssh sejump \"source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/401_cluster.hosts ~/mapr-ansible-roles/playbooks/aws_turnon.yml\""
+replace_hosts_entry() {
+    CLUSTER=$1
+    ssh sejump -q "ansible-playbook -i ~/clusters/${CLUSTER} ~/mapr-ansible-roles/playbooks/print_cluster_info.yml"
+    HOSTS_ENTRY=$(ssh sejump "cat ~/mapr-ansible-roles/playbooks/hosts_entry" | sed -e 's/^[ \d ]*//')
+
+    # delete old entry
+    sudo sed -i -e '/^# '"${CLUSTER}"'/,/^\s*$/d' /etc/hosts
+
+    # add new entry
+    cp /etc/hosts /tmp/etc_hosts
+    printf "%s\n%s" "# $CLUSTER" $HOSTS_ENTRY >> /tmp/etc_hosts
+    echo "" >> /tmp/etc_hosts
+    sudo mv /tmp/etc_hosts /etc/hosts
+}
+
+cluster_on() {
+    CLUSTER=$1
+    ssh sejump "source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/${CLUSTER} ~/mapr-ansible-roles/playbooks/aws_turnon.yml"
+}
+
+cluster_off() {
+    CLUSTER=$1
+    ssh sejump "source ~/mapr-ansible-roles/aws/credentials.sh && ansible-playbook --extra-vars='ec2_region=us-east-1' -i ~/clusters/${CLUSTER} ~/mapr-ansible-roles/playbooks/aws_turnoff.yml"
+
+
+}
+
 export JAVA_HOME=$(/usr/libexec/java_home)
-alias secluster="ssh -t sen10 tmux a"
+alias secluster="ssh -t sen10 'tmux a -d || tmux new'"
+alias sejump="mosh sejump -- 'tmux a -d || tmux new'"
+
+alias 401cluster_off='cluster_off 401_cluster.hosts'
+alias 401cluster_on='cluster_on 401_cluster.hosts'
+
+alias comcastcluster_off='cluster_off comcast_spotlight'
+alias comcastcluster_on='cluster_on comcast_spotlight'
+
+alias drill='/opt/drill/bin/sqlline -u jdbc:drill:zk=local'
+
+alias setJdk7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
+alias setJdk8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+setJdk8
